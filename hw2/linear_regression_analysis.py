@@ -22,6 +22,11 @@ y = big_ten['R']
 x = sm.add_constant(x)
 model = sm.OLS(y, x).fit()
 
+# documenting the regression in a document
+print(model.summary())
+with open('regression_model.txt', mode='w', newline='') as f:
+    f.write(model.summary().as_text())
+
 """
 
 Creating the predicted runs scored equation from the regression results
