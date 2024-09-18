@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 """
 
-Scrapping Michigan Softball 2024 Data and then putting it in a list of lists.
+The code below scraps the Michigan Softball 2024 Data and then writing data in a csv file.
 
 """
 URL = "https://mgoblue.com/sports/softball/stats/2024"
@@ -30,20 +30,9 @@ for row in rows:
 print(michigan_softball_data)
 
 
-"""
-
-Writing data in a csv file.
-
-"""
-
+# Writes data into a csv file
 with open('michigan_softball_2024_data.csv', mode='w', newline='') as f:
     writer = csv.writer(f)
     writer.writerows(michigan_softball_data)
 
 print("CSV file written successfully.")
-
-"""
-
-I commented out the code because I already successfully wrote the csv file
-
-"""

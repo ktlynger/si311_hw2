@@ -1,9 +1,12 @@
-# CHECK THAT YOU GOT ALL THE DATA
-
-# Using the notebook to scrap big ten data 
 import csv
 import requests
 from bs4 import BeautifulSoup
+
+"""
+
+Used Beautiful Soup to scrape the softball data from the Big10 Website and wrote the data in a csv file.
+
+"""
 
 URL = "https://d1softball.com/conference/big-ten-conference/2024/statistics/"
 r = requests.get(URL)
@@ -29,10 +32,9 @@ for row in rows:
     if cols != []:
         big10_data.append(cols[1:])
 
-""" I commented out the code before because I already created the csv with the data"""
-# putting the data in a csv file 
-# with open('big10_data.csv', mode='a', newline='') as f:
-#     writer = csv.writer(f)
-#     writer.writerows(big10_data)
+# Writing Data in CSV File
+with open('big10_data.csv', mode='a', newline='') as f:
+     writer = csv.writer(f)
+     writer.writerows(big10_data)
 
-# print("CSV file written successfully.")
+print("CSV file written successfully.")
